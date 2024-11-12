@@ -1,5 +1,6 @@
 <?php
-class Team {
+class Team 
+{
     
     private $teamName;
     private $totalPoints = 0;
@@ -7,41 +8,37 @@ class Team {
     private $totalGames = 0;
 
     
-    public function __construct($name) {
-        $this->teamName = $name;
+    public function __construct($parm1) 
+    {
+        $this->teamName = $parm1;
     }
 
     
-    public function finalScore($homeScore, $opponentScore) {
+    public function finalScore($parm1, $parm2)
+     {
         
-        $this->totalGoals += $homeScore;
+        $this->totalGoals += $parm1;
 
         
         $this->totalGames += 1;
 
         
-        if ($homeScore > $opponentScore) {
+        if ($parm1 > $parm2) {
             $this->totalPoints += 3; 
-        } elseif ($homeScore == $opponentScore) {
+        } elseif ($parm1 == $parm2) {
             $this->totalPoints += 1; 
         }
         
     }
 
     
-    public function getGoalAverage() {
+    public function getGoalAverage() 
+    {
         if ($this->totalGames == 0) {
             return 0; 
         }
         return $this->totalGoals / $this->totalGames;
     }
-    public function getStats() {
-        return [
-            "Team Name" => $this->teamName,
-            "Total Points" => $this->totalPoints,
-            "Total Goals" => $this->totalGoals,
-            "Total Games" => $this->totalGames,
-        ];
-    }
+    
 }
 ?>
